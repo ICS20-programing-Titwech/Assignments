@@ -68,8 +68,8 @@ end
 -- MovescubadiverBoy will be called over and over again
 Runtime: addEventListener("enterFrame", MovescubadiverGirl)
 
---global variables
-scrollSpeed = 3
+--local variables
+scrollSpeed = 4
 
 -- set the initial x and y position of scubadiverBoy
 scubadiverBoy.x = 1024
@@ -90,8 +90,11 @@ end
 -- MovescubadiverBoy will be called over and over again
 Runtime: addEventListener("enterFrame", movescubadiverBoy)
 
---global variables
-scrollSpeed = 3
+-- set the image to be transparent
+shark.alpha = 0
+
+--local variables
+local scrollSpeed = 1.5
 
 -- set the initial x and y position of scubadiverBoy
 scubadiverBoy.x = 1024
@@ -104,8 +107,11 @@ scubadiverBoy.y = display.contentHeight/1.5
 local function  moveShark(event)
 	-- add the scroll speed to the x-value of the Shark
 	shark.x = shark.x + scrollSpeed
+	shark.y = shark.y + scrollSpeed
 	-- change the transparency of the scubadiverboy every time it moves so the it fades out
-	shark.alpha = shark.alpha + 0.01
+	shark.alpha = shark.alpha + 0.1
+
+	timer.performWithDelay(3000, HideCorrect)
 
 end
 
