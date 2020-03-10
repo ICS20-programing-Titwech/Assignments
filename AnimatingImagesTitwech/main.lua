@@ -37,11 +37,15 @@ scubadiverGirl.x = 400
 scubadiverGirl.y = 500
 
 scubadiverBoy.x = 700
-scubadiverBoy.y = 200
+scubadiverBoy.y = 600
+scubadiverBoy:scale(-1,1) 
 
 shark.x = 0
 shark.y = 0
 shark:scale(-1,1)
+
+-- set the image to be transparent
+scubadiverGirl.alpha = 0
 
 --global variables
 scrollSpeed = 3
@@ -58,8 +62,52 @@ local function  MovescubadiverGirl(event)
 	-- add the scroll speed to the x-value of the scubadiverGirl
 	scubadiverGirl.x = scubadiverGirl.x + scrollSpeed
 	-- change the transparency of the scubadiverGirl every time it moves so the it fades out
-	scubadiverGirl.alpha = scubadiverGirl.alpha + 0.001
+	scubadiverGirl.alpha = scubadiverGirl.alpha + 0.01
 end
 
--- MovescubadiverGirl will be called over and over again
+-- MovescubadiverBoy will be called over and over again
 Runtime: addEventListener("enterFrame", MovescubadiverGirl)
+
+--global variables
+scrollSpeed = 3
+
+-- set the initial x and y position of scubadiverBoy
+scubadiverBoy.x = 1024
+scubadiverBoy.y = display.contentHeight/1.5
+
+-- Function: movescubadiverBoy
+-- Input: this function accepts an event listener
+-- Output: none 
+-- Description: This function adds the scroll speed to the x-value of the scubadiverBoy
+local function  movescubadiverBoy(event)
+	-- add the scroll speed to the x-value of the scubadiverboy
+	scubadiverBoy.x = scubadiverBoy.x - scrollSpeed
+	-- change the transparency of the scubadiverboy every time it moves so the it fades out
+	scubadiverBoy.alpha = scubadiverBoy.alpha + 0.01
+	
+end
+
+-- MovescubadiverBoy will be called over and over again
+Runtime: addEventListener("enterFrame", movescubadiverBoy)
+
+--global variables
+scrollSpeed = 3
+
+-- set the initial x and y position of scubadiverBoy
+scubadiverBoy.x = 1024
+scubadiverBoy.y = display.contentHeight/1.5
+
+-- Function: moveShark
+-- Input: this function accepts an event listener
+-- Output: none 
+-- Description: This function adds the scroll speed to the x-value of the shark
+local function  moveShark(event)
+	-- add the scroll speed to the x-value of the Shark
+	shark.x = shark.x + scrollSpeed
+	-- change the transparency of the scubadiverboy every time it moves so the it fades out
+	shark.alpha = shark.alpha + 0.01
+
+end
+
+-- MoveShark will be called over and over again
+Runtime: addEventListener("enterFrame", moveShark)
