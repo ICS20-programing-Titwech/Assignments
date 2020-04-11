@@ -161,6 +161,3 @@ local function  moveText(event)
 end
 -- movetext will be called over and over again
 Runtime: addEventListener("enterFrame", moveText)
-
-
-
